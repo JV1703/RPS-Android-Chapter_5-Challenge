@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.rps_ch5.viewmodel.GameViewModel" />
+
+        <variable
+            name="gameFragment"
+            type="com.example.rps_ch5.fragments.GameFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.GameFragment">
+
+        <TextView
+            android:id="@+id/player_tag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/caveat_brush"
+            android:gravity="center"
+            android:text="@{gameFragment.setPlayerName()}"
+            android:textColor="@color/name_tag"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/batuPlayer"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_1"
+            tools:text="Testing" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/batuPlayer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/batuChoice"
+            android:scaleType="fitCenter"
+            android:src="@drawable/batu"
+            app:layout_constraintBottom_toTopOf="@+id/kertasPlayer"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_1"
+            app:layout_constraintStart_toStartOf="@+id/kertasPlayer"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_1"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/kertasPlayer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/kertasChoice"
+            android:scaleType="fitCenter"
+            android:src="@drawable/kertas"
+            app:layout_constraintBottom_toTopOf="@+id/guntingPlayer"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/batuPlayer"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/guntingPlayer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/guntingChoice"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gunting"
+            app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_2"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_1"
+            app:layout_constraintStart_toStartOf="@+id/kertasPlayer"
+            app:layout_constraintTop_toBottomOf="@+id/kertasPlayer"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <TextView
+            android:id="@+id/computer_tag"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/caveat_brush"
+            android:gravity="center"
+            android:text="@{gameFragment.setOpponentName()}"
+            android:textColor="@color/name_tag"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/batuComputer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_1"
+            tools:text="Testing" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/batuComputer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/batuChoice"
+            android:scaleType="fitCenter"
+            android:src="@drawable/batu"
+            app:layout_constraintBottom_toTopOf="@+id/kertasComputer"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/kertasComputer"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_1"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/kertasComputer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/kertasChoice"
+            android:scaleType="fitCenter"
+            android:src="@drawable/kertas"
+            app:layout_constraintBottom_toTopOf="@+id/guntingComputer"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintTop_toBottomOf="@+id/batuComputer"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/guntingComputer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/guntingChoice"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gunting"
+            app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_2"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/kertasComputer"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintTop_toBottomOf="@+id/kertasComputer"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/caveat_brush"
+            android:gravity="center"
+            android:lineSpacingMultiplier="@dimen/line_spacing_multiplier"
+            android:rotation="@dimen/rotation"
+            android:text="@string/start_game"
+            android:textColor="@color/VS"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="@+id/kertasPlayer"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_1"
+            app:layout_constraintTop_toTopOf="@+id/kertasComputer"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/caveat_brush"
+            android:gravity="center"
+            android:lineSpacingMultiplier="@dimen/line_spacing_multiplier"
+            android:rotation="@dimen/rotation"
+            android:text="@string/title"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toTopOf="@+id/horizontal_guideline_1"
+            app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:background="@color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/refresh"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/vertical_guideline_2"
+            app:layout_constraintTop_toTopOf="@+id/horizontal_guideline_2"
+            app:layout_constraintVertical_bias="1.0"
+            app:shapeAppearance="@style/roundedCorners" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/roundedCorners" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vertical_guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/horizontal_guideline_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.85" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

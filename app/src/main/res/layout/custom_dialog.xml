@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.rps_ch5.viewmodel.GameViewModel" />
+
+        <variable
+            name="customDialog"
+            type="com.example.rps_ch5.dialog.CustomDialog" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:background="@drawable/rounded_corner">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/caveat_brush"
+            android:gravity="center"
+            android:text="@string/hasil_permainan"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/winning_msg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/winning_msg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/caveat_brush"
+            android:gravity="center"
+            android:text="@string/opponent_win"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@id/main_lagi_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <Button
+            android:id="@+id/main_lagi_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/purple"
+            android:text="Main Lagi"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/rtn_menu_btn"
+            app:layout_constraintStart_toStartOf="@+id/rtn_menu_btn"
+            app:layout_constraintTop_toBottomOf="@id/winning_msg" />
+
+        <Button
+            android:id="@+id/rtn_menu_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/orange"
+            android:text="Kembali Ke Menu"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_lagi_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
